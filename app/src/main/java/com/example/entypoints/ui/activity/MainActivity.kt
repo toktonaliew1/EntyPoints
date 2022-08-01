@@ -2,12 +2,9 @@ package com.example.entypoints.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.entypoints.R
-import com.example.entypoints.uitel.LoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.logging.Handler
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -16,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupNavigation()
-        loading()
+
     }
 
     private fun setupNavigation() {
@@ -25,14 +22,5 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
     }
 
-    private fun loading(){
-        val loading  = LoadingDialog(this)
-        loading.startLoading()
-        val handler = android.os.Handler()
-        handler.postDelayed(object : Runnable{
-            override fun run (){
-                loading.isDismiss()
-            }
-        },5000)
-    }
+
 }

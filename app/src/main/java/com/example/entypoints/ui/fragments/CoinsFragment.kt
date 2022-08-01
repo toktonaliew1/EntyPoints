@@ -24,12 +24,18 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        loading()
         setupObserves()
     }
 
     private fun setupRecyclerView() = with(binding.recyclerHeroes) {
         layoutManager = LinearLayoutManager(requireContext())
         adapter = heroesAdapter
+    }
+
+    private fun loading(){
+        binding.progressBar.visibility = View.VISIBLE
+        binding.mProgressBar.visibility = View.VISIBLE
     }
 
     private fun setupObserves() {
